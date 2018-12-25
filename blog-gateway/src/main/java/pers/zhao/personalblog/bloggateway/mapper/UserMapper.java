@@ -1,4 +1,4 @@
-package pers.zhao.personalblog.bloggateway.dao;
+package pers.zhao.personalblog.bloggateway.mapper;
 
 import java.util.List;
 import pers.zhao.personalblog.blogdomain.domain.User;

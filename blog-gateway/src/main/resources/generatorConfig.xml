@@ -43,7 +43,7 @@
 		</sqlMapGenerator>
 		<!-- targetPackage：mapper接口生成的位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-							 targetPackage="pers.zhao.personalblog.bloggateway.dao"
+							 targetPackage="pers.zhao.personalblog.bloggateway.mapper"
 							 targetProject="G:\develop\ideaproject\personalblog\blog-gateway\src\main\java">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -61,6 +61,8 @@
 			<!--<property name="useActualColumnNames" value="false"/>-->
 			<!-- mysql配置 -->
 			<generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+			<columnOverride column ="category_id" javaType ="java.lang.Integer" jdbcType ="TINYINT"/>
+			<columnOverride column ="author_id" javaType ="java.lang.Long" jdbcType ="INTEGER"/>
 		</table>
         <table  tableName="article_tag"
 				enableCountByExample="false"
@@ -74,6 +76,7 @@
             <!--<property name="useActualColumnNames" value="false"/>-->
 			<!-- mysql配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+			<columnOverride column ="tag_id" javaType ="java.lang.Integer" jdbcType ="SMALLINT"/>
         </table>
         <table  tableName="category"
 				enableCountByExample="false"
@@ -87,6 +90,9 @@
             <!--<property name="useActualColumnNames" value="false"/>-->
             <!-- mysql配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+			<columnOverride column ="id" javaType ="java.lang.Integer" jdbcType ="TINYINT"/>
+			<columnOverride column ="sort" javaType ="java.lang.Integer" jdbcType ="TINYINT"/>
+			<columnOverride column ="p_id" javaType ="java.lang.Integer" jdbcType ="TINYINT"/>
         </table>
         <table  tableName="comment"
 				enableCountByExample="false"
@@ -113,6 +119,9 @@
             <!--<property name="useActualColumnNames" value="false"/>-->
             <!-- mysql配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+			<columnOverride column ="id" javaType ="java.lang.Integer" jdbcType ="SMALLINT"/>
+			<columnOverride column ="category_id" javaType ="java.lang.Integer" jdbcType ="TINYINT"/>
+			<columnOverride column ="author_id" javaType ="java.lang.Long" jdbcType ="INTEGER"/>
         </table>
         <table tableName="user"
 				enableCountByExample="false"
@@ -126,28 +135,8 @@
             <!--<property name="useActualColumnNames" value="false"/>-->
             <!-- mysql配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+			<columnOverride column ="id" javaType ="java.lang.Long" jdbcType ="INTEGER"/>
         </table>
-
-		<table tableName="article">
-			<columnOverride column ="category_id" javaType ="java.lang.Integer" jdbcType ="tinyint"/>
-			<columnOverride column ="author_id" javaType ="java.lang.Long" jdbcType ="int"/>
-		</table>
-		<table tableName="article_tag">
-			<columnOverride column ="tag_id" javaType ="java.lang.Integer" jdbcType ="smallint"/>
-		</table>
-		<table tableName="category">
-			<columnOverride column ="id" javaType ="java.lang.Integer" jdbcType ="tinyint"/>
-			<columnOverride column ="sort" javaType ="java.lang.Integer" jdbcType ="tinyint"/>
-			<columnOverride column ="p_id" javaType ="java.lang.Integer" jdbcType ="tinyint"/>
-		</table>
-		<table tableName="tag">
-			<columnOverride column ="id" javaType ="java.lang.Integer" jdbcType ="smallint"/>
-			<columnOverride column ="category_id" javaType ="java.lang.Integer" jdbcType ="tinyint"/>
-			<columnOverride column ="author_id" javaType ="java.lang.Long" jdbcType ="int"/>
-		</table>
-		<table tableName="user">
-			<columnOverride column ="id" javaType ="java.lang.Long" jdbcType ="int"/>
-		</table>
 		<!-- 有些表的字段需要指定java类型
 		<table schema="" tableName="">
 			<columnOverride column="" javaType="" />

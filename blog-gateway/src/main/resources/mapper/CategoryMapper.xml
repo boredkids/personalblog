@@ -1,230 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="pers.zhao.personalblog.bloggateway.dao.CategoryMapper">
+<mapper namespace="pers.zhao.personalblog.bloggateway.mapper.CategoryMapper">
   <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="tinyint" property="id" />
+    <id column="id" jdbcType="TINYINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="tinyint" property="sort" />
+    <result column="sort" jdbcType="TINYINT" property="sort" />
     <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="tinyint" property="pId" />
+    <result column="p_id" jdbcType="TINYINT" property="pId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from category
-    where id = #{id,jdbcType=tinyint}
+    where id = #{id,jdbcType=TINYINT}
   </delete>
   <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    insert into category (id, name, sort, 
-      path, p_id, create_time
-      )
-    values (#{id,jdbcType=tinyint}, #{name,jdbcType=VARCHAR}, #{sort,jdbcType=tinyint}, 
-      #{path,jdbcType=VARCHAR}, #{pId,jdbcType=tinyint}, #{createTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into category (name, sort, path, 
+      p_id, create_time)
+    values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
+      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
     update category
     set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=tinyint},
+      sort = #{sort,jdbcType=TINYINT},
       path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=tinyint},
+      p_id = #{pId,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=tinyint}
+    where id = #{id,jdbcType=TINYINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-    where id = #{id,jdbcType=tinyint}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-  </select>
-  <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="TINYINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="TINYINT" property="sort" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="TINYINT" property="pId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
-    delete from category
-    where id = #{id,jdbcType=TINYINT}
-  </delete>
-  <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Byte">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into category (name, sort, path, 
-      p_id, create_time)
-    values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
-      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    update category
-    set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=TINYINT},
-      path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=TINYINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-    where id = #{id,jdbcType=TINYINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-  </select>
-  <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="tinyint" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="tinyint" property="sort" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="tinyint" property="pId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from category
-    where id = #{id,jdbcType=tinyint}
-  </delete>
-  <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    insert into category (id, name, sort, 
-      path, p_id, create_time
-      )
-    values (#{id,jdbcType=tinyint}, #{name,jdbcType=VARCHAR}, #{sort,jdbcType=tinyint}, 
-      #{path,jdbcType=VARCHAR}, #{pId,jdbcType=tinyint}, #{createTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    update category
-    set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=tinyint},
-      path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=tinyint},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=tinyint}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-    where id = #{id,jdbcType=tinyint}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-  </select>
-  <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="TINYINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="TINYINT" property="sort" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="TINYINT" property="pId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
-    delete from category
-    where id = #{id,jdbcType=TINYINT}
-  </delete>
-  <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Byte">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into category (name, sort, path, 
-      p_id, create_time)
-    values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
-      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    update category
-    set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=TINYINT},
-      path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=TINYINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-    where id = #{id,jdbcType=TINYINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-  </select>
-  <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="TINYINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="TINYINT" property="sort" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="TINYINT" property="pId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
-    delete from category
-    where id = #{id,jdbcType=TINYINT}
-  </delete>
-  <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Byte">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into category (name, sort, path, 
-      p_id, create_time)
-    values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
-      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    update category
-    set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=TINYINT},
-      path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=TINYINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-    where id = #{id,jdbcType=TINYINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, sort, path, p_id, create_time
-    from category
-  </select>
-  <resultMap id="BaseResultMap" type="pers.zhao.personalblog.blogdomain.domain.Category">
-    <id column="id" jdbcType="TINYINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="TINYINT" property="sort" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="p_id" jdbcType="TINYINT" property="pId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
-    delete from category
-    where id = #{id,jdbcType=TINYINT}
-  </delete>
-  <insert id="insert" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Byte">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into category (name, sort, path, 
-      p_id, create_time)
-    values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
-      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
-    update category
-    set name = #{name,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=TINYINT},
-      path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=TINYINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
     select id, name, sort, path, p_id, create_time
     from category
     where id = #{id,jdbcType=TINYINT}
