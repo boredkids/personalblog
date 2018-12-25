@@ -1,0 +1,47 @@
+/*头部的彩条*/
+header::before {
+    background: #000 linear-gradient(to left, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    content: "";
+    height: 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    padding: 5px 0;
+    background: #1C2327;
+    height: 60px;
+}
+
+/*logo处的字体*/
+#logo {
+    color: white;
+    float: left;
+    margin-right: 60px;
+    font-size: 22px;
+}
+#logofont {
+    font-size: 12px;
+}
+
+/*导航栏字体颜色*/
+#links a {
+    color: white;
+}
+#links a:hover {
+    color: #5ac8fa;
+}
+/*右边距*/
+#links li {
+    margin-right: 20px;
+}
+
+.bg-dark {
+    background-color: #1C2327 !important;
+}
+
+.navbar-toggler {
+    padding: 0rem;
+}

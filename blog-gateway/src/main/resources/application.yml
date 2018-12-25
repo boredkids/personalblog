@@ -1,12 +1,17 @@
 server:
   port: 8081
+debug: true
 spring:
+  devtools:
+    restart:
+      enabled: true
   profiles:
     active: dev
   thymeleaf:
     encoding: UTF-8
+    #页面不缓存，每次更改ctrl+F9刷新
     cache: false
-    mode: HTML
+    mode: HTML5
   datasource:
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
