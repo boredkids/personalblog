@@ -7,7 +7,7 @@
     <result column="category_id" jdbcType="TINYINT" property="categoryId" />
     <result column="is_hot" jdbcType="BIT" property="isHot" />
     <result column="author_id" jdbcType="INTEGER" property="authorId" />
-    <result column="click_num" jdbcType="INTEGER" property="clickNum" />
+    <result column="click_num_id" jdbcType="INTEGER" property="clickNumId" />
     <result column="img" jdbcType="VARCHAR" property="img" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -22,10 +22,12 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into article (name, category_id, is_hot, 
-      author_id, click_num, img, content
+      author_id, click_num_id, img, 
+      content
       )
     values (#{name,jdbcType=VARCHAR}, #{categoryId,jdbcType=TINYINT}, #{isHot,jdbcType=BIT}, 
-      #{authorId,jdbcType=INTEGER}, #{clickNum,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      #{authorId,jdbcType=INTEGER}, #{clickNumId,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Article">
@@ -34,20 +36,20 @@
       category_id = #{categoryId,jdbcType=TINYINT},
       is_hot = #{isHot,jdbcType=BIT},
       author_id = #{authorId,jdbcType=INTEGER},
-      click_num = #{clickNum,jdbcType=INTEGER},
+      click_num_id = #{clickNumId,jdbcType=INTEGER},
       img = #{img,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, name, category_id, is_hot, author_id, click_num, img, create_time, update_time, 
-    content
+    select id, name, category_id, is_hot, author_id, click_num_id, img, create_time, 
+    update_time, content
     from article
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, category_id, is_hot, author_id, click_num, img, create_time, update_time, 
-    content
+    select id, name, category_id, is_hot, author_id, click_num_id, img, create_time, 
+    update_time, content
     from article
   </select>
 </mapper>

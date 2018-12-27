@@ -21,7 +21,7 @@ public class User {
 
     private Date createTime;
 
-    private List<Article> articleList;
+    private List<Comment> commentList;
 
-    private List<Comment> comments;
+    private List<Article> articleList;
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.Date;
 /**
- * 评论实体类
+ * 评论
  * @author zhao
  */
 @Data
@@ -19,7 +19,7 @@ public class Comment {
 
     private Date createTime;
 
-    private User user;
-
     private Article article;
+
+    private User user;
 }

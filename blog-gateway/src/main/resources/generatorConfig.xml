@@ -137,6 +137,20 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
 			<columnOverride column ="id" javaType ="java.lang.Long" jdbcType ="INTEGER"/>
         </table>
+
+		<table tableName="counter"
+			   enableCountByExample="false"
+			   enableDeleteByPrimaryKey="true"
+			   enableDeleteByExample="false"
+			   enableInsert="true"
+			   enableSelectByExample="false"
+			   enableUpdateByExample="false"
+			   enableUpdateByPrimaryKey="true">
+			<!--实体类驼峰命名-->
+			<!--<property name="useActualColumnNames" value="false"/>-->
+			<!-- mysql配置 -->
+			<generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+		</table>
 		<!-- 有些表的字段需要指定java类型
 		<table schema="" tableName="">
 			<columnOverride column="" javaType="" />

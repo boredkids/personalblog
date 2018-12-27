@@ -17,14 +17,14 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into comment (content, article_id, author_id)
-    values (#{content,jdbcType=VARCHAR}, #{articleId,jdbcType=BIGINT}, #{authorId,jdbcType=INTEGER})
+    values (#{content,jdbcType=VARCHAR}, #{articleId,jdbcType=BIGINT}, #{authorId,jdbcType=INTEGER}
+     )
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Comment">
     update comment
     set content = #{content,jdbcType=VARCHAR},
       article_id = #{articleId,jdbcType=BIGINT},
-      author_id = #{authorId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      author_id = #{authorId,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">

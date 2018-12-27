@@ -15,14 +15,15 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into tag (name, category_id)
+    insert into tag (name, category_id
+      )
     values (#{name,jdbcType=VARCHAR}, #{categoryId,jdbcType=TINYINT}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Tag">
     update tag
     set name = #{name,jdbcType=VARCHAR},
-      category_id = #{categoryId,jdbcType=TINYINT},
+      category_id = #{categoryId,jdbcType=TINYINT}
     where id = #{id,jdbcType=SMALLINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

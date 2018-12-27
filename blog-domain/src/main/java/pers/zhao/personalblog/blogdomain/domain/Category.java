@@ -3,8 +3,10 @@ package pers.zhao.personalblog.blogdomain.domain;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+
 /**
- * 分类实体类
+ * 分类
  * @author zhao
  */
 @Data
@@ -21,4 +23,5 @@ public class Category {
 
     private Date createTime;
 
+    private List<Article> articleList;
 }

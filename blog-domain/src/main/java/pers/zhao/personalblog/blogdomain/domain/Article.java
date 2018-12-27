@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 博客正文
+ * 文章
  * @author zhao
  */
 @Data
@@ -21,7 +21,7 @@ public class Article {
 
     private Long authorId;
 
-    private Integer clickNum;
+    private Integer clickNumId;
 
     private String img;
 
@@ -31,7 +31,11 @@ public class Article {
 
     private String content;
 
-    private List<Comment> Comments;
+    private User user;
+
+    private Category category;
+
+    private List<Comment> commentList;
 
     private List<Tag> tagList;
 }
