@@ -16,17 +16,14 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (nickname, email, img, 
-      create_time)
-    values (#{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+    insert into user (nickname, email, img)
+    values (#{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.User">
     update user
     set nickname = #{nickname,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">

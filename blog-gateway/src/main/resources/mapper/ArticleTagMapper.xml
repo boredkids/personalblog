@@ -15,16 +15,15 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into article_tag (article_id, tag_id, create_time
+    insert into article_tag (article_id, tag_id
       )
-    values (#{articleId,jdbcType=BIGINT}, #{tagId,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}
+    values (#{articleId,jdbcType=BIGINT}, #{tagId,jdbcType=SMALLINT}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.ArticleTag">
     update article_tag
     set article_id = #{articleId,jdbcType=BIGINT},
-      tag_id = #{tagId,jdbcType=SMALLINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      tag_id = #{tagId,jdbcType=SMALLINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

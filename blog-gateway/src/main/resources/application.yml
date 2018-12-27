@@ -1,6 +1,5 @@
 server:
   port: 8081
-debug: true
 spring:
   devtools:
     restart:
@@ -11,7 +10,7 @@ spring:
     encoding: UTF-8
     #页面不缓存，每次更改ctrl+F9刷新
     cache: false
-    mode: HTML5
+    mode: HTML
   datasource:
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
@@ -44,7 +43,12 @@ spring:
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
       # 合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
-
+  redis:
+    database: ${redis.database}
+    host: ${redis.host}
+    port: ${redis.port}
+    timeout: ${redis.timeout}
+    password: ${redis.password}
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

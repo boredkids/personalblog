@@ -22,12 +22,10 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into article (name, category_id, is_hot, 
-      author_id, click_num, img, 
-      create_time, update_time, content
+      author_id, click_num, img, content
       )
     values (#{name,jdbcType=VARCHAR}, #{categoryId,jdbcType=TINYINT}, #{isHot,jdbcType=BIT}, 
-      #{authorId,jdbcType=INTEGER}, #{clickNum,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
+      #{authorId,jdbcType=INTEGER}, #{clickNum,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Article">
@@ -38,8 +36,6 @@
       author_id = #{authorId,jdbcType=INTEGER},
       click_num = #{clickNum,jdbcType=INTEGER},
       img = #{img,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>

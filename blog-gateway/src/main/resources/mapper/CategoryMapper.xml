@@ -18,17 +18,16 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into category (name, sort, path, 
-      p_id, create_time)
+      p_id)
     values (#{name,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR}, 
-      #{pId,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+      #{pId,jdbcType=TINYINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="pers.zhao.personalblog.blogdomain.domain.Category">
     update category
     set name = #{name,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=TINYINT},
       path = #{path,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      p_id = #{pId,jdbcType=TINYINT}
     where id = #{id,jdbcType=TINYINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
